@@ -2,30 +2,66 @@ import java.util.Scanner;
 
 public class zad3 {
 
+    /* 
+
+                          v  WEDŁUG ZALECEŃ  v
+
+    public static void dane(String imie){
+        System.out.prinln(imie);
+    }
+
+        public static void dane(String imie, String nazwisko){
+        System.out.prinln(imie + "\n" + nazwisko);
+    }
+
+        public static void dane(String imie, String nazwisko, int wiek){
+        System.out.prinln(imie + "\n" + nazwisko + "\n" + wiek);
+    }
+    */
+
+    public static void dane(String imie){
+        System.out.println("====================== IMIE ======================");
+        System.out.println("Twoje imie: " + imie + "\n");
+    }
+
+    public static void dane(String imie, String nazwisko){
+        System.out.println("================= IMIE + NAZWISKO ================");
+        System.out.println("Twoje imie: " + imie);
+        System.out.println("Twoje nazwisko: " + nazwisko + "\n");
+    }
+
+    public static void dane(String imie, String nazwisko, int wiek){
+        System.out.println("============= IMIE + NAZWISKO + WIEK =============");
+        System.out.println("Twoje imie: " + imie);
+        System.out.println("Twoje nazwisko: " + nazwisko);
+        System.out.println("Twój wiek: " + wiek + "\n");
+    }
+
     public static void main(String[] args) {
-        /* zad.3 wpisz z klawiatury liczbę zmiennoprzecinkową (użyj klasy Scanner z poprzednich ćwiczeń)
-         * i stwórz konstrukcję else if z dowolnymi komunikatami */
+        /* zad.3
+        a) napisać metodę która przyjmuje 1 parametr typu String, metoda nic nie zwraca, tylko
+            wyświetla w konsoli string który ma być waszym imieniem,
+        b) napisać metodę o tej samej nazwie jak w punkcie a) z 2-oma parametrami typu String, która wyświetli
+            wasze imie i nazwisko,
+        c) napisać metodę o tej samej nazwie jak w punkcie a) i b) która przyjmuje wasze imie,
+            nazwisko i wiek (int), a następnie wszystko wyświetli,
+        */
+
         Scanner input = new Scanner(System.in);
         
-        System.out.print("Podaj liczbe z przecinkiem: ");
-        double liczba = input.nextDouble();
+        System.out.print("Podaj imie: ");
+        String imie = input.nextLine();
+
+        System.out.print("Podaj nazwisko: ");
+        String nazwisko = input.nextLine();
+
+        System.out.print("Podaj wiek: ");
+        int wiek = input.nextInt();
+
         input.close();
-        
-        double polowa = liczba % 2;
-        long sprawdzenie = Math.round(liczba);
 
-
-        if (polowa == 0.5) {
-            System.out.println("\nTwoja liczba po zaokrągleniu jest taka sama jak oryginał");
-            System.out.printf("PRZED: %.1f\nPO: %.1f", liczba, sprawdzenie - polowa); 
-        }
-        else if (sprawdzenie > liczba) {
-            System.out.println("\nTwoja liczba po zaokrągleniu jest większa od oryginału");
-            System.out.printf("PRZED: %.1f\nPO: %d", liczba, sprawdzenie);            
-        } 
-        else {
-            System.out.println("\nTwoja liczba po zaokrągleniu jest mniejsza od oryginału");
-            System.out.printf("PRZED: %.1f\nPO: %d", liczba, sprawdzenie); 
-        }
+        dane(imie);
+        dane(imie, nazwisko);
+        dane(imie, nazwisko, wiek);
     }   
 }

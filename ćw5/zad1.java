@@ -1,23 +1,31 @@
-import java.util.Scanner;
-
 public class zad1 {
 
+   public static int[] uzupelnij40(int[] itab){
+         for (int i = 0; i < itab.length; i++) {
+            itab[i] = 40 - i;
+         }
+         return itab;
+   }
+
+   public static void wypiszTAB(int[] itab){
+      int l = 1;
+      System.out.println("Twoja tablica:");
+      for (int i : itab) {
+            System.out.println(l + ". " + i);
+            l++;
+      }
+   }
+
     public static void main(String[] args) {
-        /* zad.1 podziel swój wiek przez modulo 3 i jeśli twój wiek zwraca 0 wyświetl napis "Podzielny przez 3",
-         * w innym wypadku "Niepodzielny przez 3" użyj kontrukcji if else
-         * */
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Podaj prosze swój wiek: ");
-        int wiek = input.nextInt();
-        input.close();
-
-         if (wiek % 3 == 0) {
-            System.out.println("Twój wiek jest podzielny przez 3! :)");
-         }
-         else {
-            System.out.println("Twój wiek jest niepodzielny przez 3! :(");
-         }
+        /* zad.1
+        a) stworzyć tablicę typu int[20],
+        b) napisać metodę która będzie uzupełniała tablicę wartościami od 40 do 21,
+        c) napisać metodę, która wypisze otrzymane wartości,
+        d) wstawić wywołanie metody do metody main
+        */
+        
+        int[] itab = new int[20];
+        uzupelnij40(itab);
+        wypiszTAB(itab);
     }
 }
