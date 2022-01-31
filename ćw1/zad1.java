@@ -1,37 +1,77 @@
 import java.util.Scanner;
 
-public class zad1 {
+public class zad1 
+{
+  public static void main(String[] args) 
+  {
+    /* zad.1
+    a) Stworzyć prosty enum "LiczbyEnum" z liczbami od 1 do 6 zapisanymi słownie,
+    b) stworzyć prosty enum "StatusEnum" z wartościami KONTYNUUJEMY i KONIEC,
+    c) stworzyć pętlę while z wartością true w warunku (nieskończona pętla),
+    d) niech w pętli są podawane wartości liczbowe z klawiatury,
+    e) jeśli użytkownik poda z klawiatury 0 to program ma kończyć działanie,
+    f) umieścić w pętli switch() case: które będą wypisywały cyfry słownie odpowiednio
+    do podanych cyfr przez użytkownika,
+    g) gdy użytkownik wciśnie 0 ma wyświetlić się status KONIEC w innym wypadku KONTYNUUJEMY :),
+    */
 
-    public static void main(String[] args) {
-        /* zad 1 - Napisać za pomocą pętli do-while kod który będzie iterował od liczby 1000 w dół do 0.
-          Jeśli liczba będzie podzielna przez 2 ostatnie cyfry waszego indeksu (podać nr indesu z uczelni)
-          to dać komunikat "liczba XX podzielna przez YY" (XX-liczba podzielna YY-podzielnik)
-        */
+    /* statusy i wybór ze switch case to najczęstsze użycia enumów, enumy są często używane
+    * w różnego rodzaju listach, selectach jako krótkie opcje wyboru np. jako status A, X (Aktualny, Usunięty) */
+    
+    Scanner input = new Scanner(System.in);
+    boolean petla = true;
 
-        Scanner input = new Scanner(System.in);
+    while (petla) 
+    {
+      int x = Integer.parseInt(input.next());
 
-        System.out.print("Podaj swój numer indeksu: ");
-        int indeks = input.nextInt();
-        input.close();
+      switch (x) 
+      {
+        case 0:
+          System.out.println(StatusEnum.KONIEC);
+          petla = false;
+          break;
 
-        int x = 1000;
+        case 1:
+          System.out.println(LiczbyEnum.JEDEN);
+          break;
 
-        /* 
+        case 2:
+          System.out.println(LiczbyEnum.DWA);
+          break;
 
-        Co tu się dzieje? 
-        Przekształcam indeks na string, po czym ucinam ze stringa końcówkę (2 ostatnie liczby) i przekształcam je ponownie na int
-        
-        */
+        case 3:
+          System.out.println(LiczbyEnum.TRZY);
+          break;
 
-        String ost_cyfry = Integer.toString(indeks);
-        int podzielnik = Integer.parseInt(ost_cyfry.substring(ost_cyfry.length() - 2));
+        case 4:
+          System.out.println(LiczbyEnum.CZTERY);
+          break;
 
-        do {
-          if (x % podzielnik == 0) {
-            System.out.printf("Liczba %d podzielna przez %d\n", x, podzielnik);
-          }
-
-          x--;
-        } while (x != 0);
+        case 5:
+              System.out.println(LiczbyEnum.PIEC);
+          break;
+          
+        case 6:
+          System.out.println(LiczbyEnum.SZESC);
+          break;
+          
+        default:
+          System.out.println(StatusEnum.KONTYNUUJEMY);
+          break;
+      }
     }
+
+    input.close();
+  }
+}
+
+enum LiczbyEnum 
+{
+  JEDEN, DWA, TRZY, CZTERY, PIEC, SZESC
+}
+
+enum StatusEnum 
+{
+  KONTYNUUJEMY, KONIEC
 }
