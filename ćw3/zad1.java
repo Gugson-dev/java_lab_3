@@ -1,31 +1,44 @@
-import java.util.Scanner;
+import cw3klasy.*;
 
-public class zad1 {
+public class zad1 
+{
+    public static void main(String[] args) 
+    {
+        /*  zad.1 - Najpierw należy uzupełnić kod w klasie Punkt.java,
+            a) stworzyć objekt punktA typu Punkt,
+            w konstruktorze zainicjować zmienną pX --> np. new Punkt(7), wykonać metodę punktA.toString();
+            b) następnie ponownie wywopać konstruktor inicjalizujący wszystkie pola z klasy
+            --> np. punkt = new Punkt(1, 2, 3);, wykonać metodę punktA.toString();
+            c) nadpisać wartości pól z objektu punktA za pomocą setterów i
+            ponownie wywołać metodę toString();
+            d) wypisać wartości pól (za pomocą getterów),
+            e) wywołać metody suma i róznica (obie wersje) z klasy punkt
+        */
 
-    public static void main(String[] args) {
-        /* zad.1 napisać program który przyjmuje jedną liczbę od użytkownika z klawiatury
-          i za pomocą switch case default ma określić czy:
-          a) ta liczba jest parzysta --> podpowiedz switch(a % 2) {
-          b) program który określi czy liczba jest podzielna przez 7
-         */
+        // Podpunkt A
+        Punkt punktA = new Punkt(7);
+        System.out.println(punktA.toString());
 
-         Scanner input = new Scanner(System.in);
+        // Podpunkt B
+        punktA = new Punkt(1, 2, 3);
+        System.out.println(punktA.toString());
 
-         System.out.print("Podaj liczbe aby sprawdzić czy jest podzielna przez 2 i 7: ");
-         int liczba = input.nextInt();
-         
-         input.close();
-         String dziel = (liczba % 7 == 0) ? "\nLiczba " + liczba + " jest podzielna przez 7" : "\nLiczba " + liczba + " nie jest podzielna przez 7";
+        // Podpunkt C
+        punktA.setPX(4);
+        punktA.setPY(5);
+        punktA.setPZ(6);
+        System.out.println(punktA.toString());
 
-         switch (liczba % 2) {
-             case 0:
-                 System.out.printf("Liczba %d jest podzielna przez 2%s", liczba, dziel);
-                 
-                 break;
-         
-             default:
-                 System.out.printf("Liczba %d nie jest podzielna przez 2%s", liczba, dziel);
-                 break;
-         }
+        // Podpunkt D
+        System.out.println("\nWypisane getami:");
+        System.out.println("pX = " + punktA.getPX());
+        System.out.println("pY = " + punktA.getPY());
+        System.out.println("pZ = " + punktA.getPZ());
+
+        // Podpunkt E
+        System.out.println("\nMetody:");
+        System.out.println("suma() = " + punktA.suma());
+        System.out.println("roznica() = " + punktA.roznica());
+        System.out.println("roznica(x, y, z) = " + punktA.roznica(7, 8, 9));
     }
 }
